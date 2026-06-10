@@ -1,4 +1,4 @@
-import{j as e,S as r,c as t}from"./index-kOmr1vg4.js";const i=[{k:"Angaben gemäß § 5 TMG",v:`Benjamin Fehmi Lange
+import{j as e,S as r,c as t}from"./index-Da9gkz_T.js";const i=[{k:"Angaben gemäß § 5 TMG",v:`Benjamin Fehmi Lange
 LCA Commercial Intelligence
 Asberger Straße 7
 47198 Duisburg
