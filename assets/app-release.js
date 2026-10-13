@@ -131,7 +131,7 @@ if (!motionPreference.matches && 'IntersectionObserver' in window) {
     entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
     });
-  }, { threshold: .08, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px 22% 0px' });
   revealElements.forEach((el, i) => {
     // Content already in view must never flash out after the script loads.
     if (el.getBoundingClientRect().top >= innerHeight - 10) {
@@ -162,3 +162,32 @@ if (story) {
     console.warn('Die Architecture wird als lesbare Seite dargestellt.', error);
   });
 }
+
+// Release: mitlaufende Sprungleiste (Zusammenarbeit) mit aktivem Zustand.
+(() => {
+  const nav = document.querySelector('.editorial-index');
+  if (!nav) return;
+  const links = [...nav.querySelectorAll('a[href^="#"]')];
+  const targets = links.map(a => document.getElementById(a.getAttribute('href').slice(1)));
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  let ticking = false, current = -2;
+  function update() {
+    ticking = false;
+    const line = innerHeight * .4;
+    let idx = -1;
+    targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= line) idx = i; });
+    if (idx === current) return;
+    current = idx;
+    links.forEach((a, i) => {
+      a.classList.toggle('is-active', i === idx);
+      if (i === idx) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+    if (idx >= 0 && nav.scrollWidth > nav.clientWidth) {
+      const a = links[idx];
+      nav.scrollTo({ left: a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2, behavior: calm.matches ? 'auto' : 'smooth' });
+    }
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', update);
+  update();
+})();
