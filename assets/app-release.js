@@ -1,3 +1,8 @@
+// Release: die 3D-Szene startet erst nach dem ersten Darstellen, im Leerlauf.
+const startScene = load => new Promise(resolve => {
+  const go = () => { if (window.requestIdleCallback) requestIdleCallback(() => resolve(load()), { timeout: 1200 }); else setTimeout(() => resolve(load()), 200); };
+  if (document.readyState === 'complete') go(); else addEventListener('load', go, { once: true });
+});
 document.documentElement.classList.add('js');
 const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('#main-nav');
@@ -155,7 +160,7 @@ document.querySelectorAll('details').forEach(detail => detail.addEventListener('
 }));
 const story = document.querySelector('.scroll-story');
 if (story) {
-  import('./cinematic-story.js').then(module => module.mountArchitecture(story)).catch(error => {
+  startScene(() => import('./cinematic-story.js')).then(module => module.mountArchitecture(story)).catch(error => {
     story.classList.remove('story-enhanced'); story.dataset.scene = 'fallback';
     story.querySelector('.story-ui').hidden = true;
     story.querySelector('.story-mode').hidden = true;

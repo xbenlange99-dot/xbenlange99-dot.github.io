@@ -55,6 +55,20 @@ export function createCinematicFinish(renderer) {
       renderer.setRenderTarget(glowB);renderer.render(quadScene,camera);
       quad.material=finish;renderer.setRenderTarget(null);renderer.render(quadScene,camera);
     },
+    // Starts building every shader program of the finishing pipeline (parallel, no drawing, no blocking).
+    prepareScene(scene,sceneCamera){
+      const previous=renderer.getRenderTarget();
+      renderer.setRenderTarget(sceneTarget);renderer.compile(scene,sceneCamera);
+      renderer.setRenderTarget(previous);
+    },
+    prepareQuad(){
+      const previous=renderer.getRenderTarget();
+      quad.material=blur;renderer.setRenderTarget(glowA);renderer.compile(quadScene,camera);
+      quad.material=finish;renderer.setRenderTarget(null);renderer.compile(quadScene,camera);
+      renderer.setRenderTarget(previous);
+    },
+    // Weaker devices only: fewer multisample taps on the scene buffer.
+    lowerSamples(){sceneTarget.samples=Math.min(sceneTarget.samples,2);sceneTarget.dispose();},
     dispose(){sceneTarget.dispose();glowA.dispose();glowB.dispose();blur.dispose();finish.dispose();geometry.dispose();}
   };
 }

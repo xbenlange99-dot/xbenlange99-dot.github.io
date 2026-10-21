@@ -207,5 +207,17 @@ export function createCinematicBuilding(scene) {
     return {pavilion,access,growth,broadening,storeys:growth>.98?3:growth>.04?2:pavilion>.01?1:0};
   }
   update(0);
-  return {root,update};
+  // Visits every shader-relevant combination the scroll can reach (number of interior lights x opaque or
+  // fading materials), so all programs can be built ahead of time. Afterwards the start state is restored.
+  async function eachVariant(visit) {
+    const fading=[...levels.flatMap(level=>[level.structure,level.enclosure,level.cap]),...paving,forecourt,...widening];
+    for(const lights of [1,2,3]) for(const transparent of [false,true]) {
+      levels.forEach((level,i)=>{level.structure.visible=i<lights;});
+      for(const group of fading) for(const material of group.userData.revealMaterials) {material.transparent=transparent;material.needsUpdate=true;}
+      await visit();
+    }
+    for(const group of fading) for(const material of group.userData.revealMaterials) {material.transparent=false;material.needsUpdate=true;}
+    update(0);
+  }
+  return {root,update,eachVariant};
 }

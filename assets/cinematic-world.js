@@ -98,6 +98,21 @@ export function createCinematicWorld(scene,renderer) {
       renderer.setRenderTarget(reflection);renderer.render(scene,reflectionCamera);
       renderer.setRenderTarget(previousTarget);renderer.clippingPlanes=previousClipping;floorParts.forEach(part=>part.visible=true);
     },
+    // Starts building the reflection-pass shader programs (parallel, no drawing, no blocking).
+    prepare(camera){
+      reflectionCamera.copy(camera);
+      const previousTarget=renderer.getRenderTarget(),previousClipping=renderer.clippingPlanes;
+      floorParts.forEach(part=>part.visible=false);renderer.clippingPlanes=[clippingPlane];renderer.setRenderTarget(reflection);
+      renderer.compile(scene,reflectionCamera);
+      renderer.setRenderTarget(previousTarget);renderer.clippingPlanes=previousClipping;floorParts.forEach(part=>part.visible=true);
+    },
+    // Weaker devices only: a smaller shadow map; light, direction and softness stay the same.
+    lowerShadow(){
+      key.shadow.mapSize.set(1024,1024);
+      key.shadow.map?.dispose();key.shadow.map=null;
+      key.shadow.mapPass?.dispose();key.shadow.mapPass=null;
+    },
+    shrink(){reflection.setSize(1,1);},
     dispose(){reflection.dispose();}
   };
 }
