@@ -1,0 +1,72 @@
+/* Onboarding-Fragebogen /onboarding/ im Genf-Stil (quelle/build.py bindet die Datei nur dort ein).
+   Gleiche Struktur und Funktion wie im Arbeitsordner (onboarding.js), Gestaltung aus genf.css: Weiß, Navy, Haarlinien. */
+.ob-kopf .lead { max-width: 34em; }
+.ob-intro { max-width: 40em; margin: 1.4rem 0 0; color: var(--schiefer); }
+.ob-bereich { padding: clamp(56px, 6vw, 104px) var(--rand) clamp(96px, 10vw, 160px); }
+.ob-layout { display: grid; grid-template-columns: minmax(200px, 3fr) minmax(0, 8fr); column-gap: clamp(40px, 7vw, 140px); align-items: start; }
+.ob-layout > * { min-width: 0; }
+.ob-progress { position: sticky; top: calc(var(--kopf) + 32px); }
+.ob-progress-text { margin: 0 0 1rem; font-size: 0.6875rem; font-weight: 520; letter-spacing: 0.2em; text-transform: uppercase; color: var(--schiefer); }
+.ob-bar { height: 2px; margin: 0 0 1.4rem; background: var(--linie); overflow: hidden; }
+.ob-bar span { display: block; width: var(--ob-anteil, 0%); height: 100%; background: var(--navy); transition: width 0.45s var(--sanft); }
+.ob-steps { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--linie); }
+.ob-steps li { border-bottom: 1px solid var(--linie); }
+.ob-steps a { display: flex; align-items: center; gap: 14px; min-height: 48px; color: var(--schiefer); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
+.ob-steps a:hover { color: var(--navy); }
+.ob-num { display: inline-grid; place-items: center; flex: none; width: 32px; height: 32px; border: 1px solid var(--linie-feld); border-radius: 2px; font-size: 0.66rem; font-weight: 520; letter-spacing: 0.06em; color: var(--schiefer); transition: background-color 0.2s, border-color 0.2s, color 0.2s; }
+.ob-steps a.is-filled .ob-num { border-color: var(--navy); color: var(--navy); }
+.ob-steps a[aria-current] { color: var(--navy); }
+.ob-steps a[aria-current] .ob-num { background: var(--navy); border-color: var(--navy); color: var(--weiss); }
+.ob-step + .ob-step { margin-top: 72px; padding-top: 72px; border-top: 1px solid var(--linie); }
+.ob-js .ob-step:not(.is-current) { display: none; }
+.ob-js .ob-step + .ob-step { margin-top: 0; padding-top: 0; border-top: 0; }
+.ob-titel { font-size: clamp(1.6rem, 2.6vw, 2.5rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; color: var(--navy); margin: 0 0 1.6rem; }
+.ob-titel:focus { outline: none; }
+.ob-step > p:not(.label) { max-width: 40em; }
+.ob-hint { color: var(--schiefer); margin-bottom: 2rem; }
+.ob-form .ob-feld { margin-bottom: 28px; }
+/* Fragen sind ganze Sätze: normal gesetzt statt der Großbuchstaben-Labels des Kontaktformulars */
+.ob-form .ob-feld > label, .ob-auswahl legend, .ob-preview > label { font-size: 0.98rem; font-weight: 420; letter-spacing: 0; text-transform: none; line-height: 1.5; color: var(--navy); max-width: 40em; }
+.ob-form textarea { min-height: 136px; }
+.ob-auswahl { margin: 0 0 28px; padding: 0; border: 0; min-width: 0; }
+.ob-auswahl legend { padding: 0; margin-bottom: 12px; }
+.ob-auswahl > div { display: flex; flex-wrap: wrap; gap: 10px; }
+.ob-wahl { position: relative; display: inline-flex; margin: 0; }
+.ob-wahl input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; padding: 0; opacity: 0; cursor: pointer; }
+.ob-wahl span { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 18px; border: 1px solid var(--linie-feld); border-radius: 2px; font-size: 0.86rem; color: var(--tinte); transition: background-color 0.2s, border-color 0.2s, color 0.2s; }
+.ob-wahl input:hover + span { border-color: var(--navy); }
+.ob-wahl input:checked + span { background: var(--navy); border-color: var(--navy); color: var(--weiss); }
+.ob-wahl input:focus-visible + span { outline: 2px solid var(--navy); outline-offset: 3px; }
+.ob-nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+.ob-preview { margin-top: 32px; }
+.ob-preview textarea { min-height: 19rem; font-size: 0.86rem; line-height: 1.7; background: var(--nebel); }
+.ob-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.ob-small { max-width: 46em; margin: 14px 0 0; color: var(--schiefer); font-size: 0.84rem; }
+.ob-small a, .ob-danke a { color: var(--navy); }
+.ob-small.is-wichtig { padding: 14px 18px; border: 1px solid var(--navy); color: var(--tinte); }
+.ob-delete { min-height: 44px; padding: 0; border: 0; background: none; color: var(--schiefer); font: inherit; font-size: 0.86rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.ob-delete:hover { color: var(--navy); }
+.ob-confirm { margin-top: 16px; padding: 20px 22px; border: 1px solid var(--linie-feld); background: var(--nebel); }
+.ob-confirm p { margin: 0 0 14px; font-weight: 450; color: var(--navy); }
+.ob-confirm div { display: flex; flex-wrap: wrap; gap: 10px; }
+.ob-danke { padding: clamp(28px, 3.4vw, 48px); background: var(--nebel); }
+.ob-danke p { max-width: 40em; }
+.ob-danke .formular-status { margin: 0; }
+.ob-danke-links { display: flex; flex-wrap: wrap; gap: 4px 32px; margin: 12px 0 0; }
+@media (max-width: 820px) {
+  .ob-layout { grid-template-columns: minmax(0, 1fr); row-gap: 32px; }
+  .ob-progress { position: static; }
+  .ob-steps { display: flex; justify-content: space-between; gap: 4px; border: 0; }
+  .ob-steps li { border: 0; }
+  .ob-steps a { min-height: 44px; }
+  .ob-lab { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .ob-num { width: 40px; height: 40px; }
+}
+@media (max-width: 600px) {
+  .ob-actions { flex-direction: column; align-items: stretch; }
+  .ob-nav .knopf { flex: 1; }
+  .ob-nav > span { display: none; }
+  .ob-nav-send { flex-direction: column-reverse; align-items: stretch; }
+  .ob-preview textarea { min-height: 15rem; }
+}
+@media (max-width: 360px) { .ob-num { width: 36px; height: 36px; } }
