@@ -453,12 +453,6 @@ h3 { font-size: 1.12rem; font-weight: 420; line-height: 1.38; letter-spacing: -0
 .hellkopf .h-seite { color: var(--navy); max-width: 16em; }
 .hellkopf .lead { margin: 0; }
 .hellkopf.mit-bild { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); column-gap: clamp(40px, 6vw, 120px); align-items: end; }
-.hellkopf-eck { margin-top: 8px; }
-.eckdaten {
-  display: inline-block; margin: 0; padding: 14px 0; border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie);
-  font-size: 0.75rem; font-weight: 520; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy);
-}
-.stelle-kopf .h-seite { font-size: clamp(2rem, 3.8vw, 3.8rem); max-width: 18em; }
 
 .zeilen > .zeile + .zeile { border-top: 1px solid var(--linie); }
 .zeile {
@@ -474,8 +468,6 @@ h3 { font-size: 1.12rem; font-weight: 420; line-height: 1.38; letter-spacing: -0
 .teil h3 { font-size: 0.6875rem; font-weight: 520; letter-spacing: 0.2em; text-transform: uppercase; line-height: 1.6; color: var(--navy); margin: 4px 0 12px; }
 .teil p { margin: 0; color: var(--tinte); }
 .zeile-text > .zeile-text p:first-child, .leistung .zeile-text > p:first-child { font-size: 1rem; }
-.karriere-einleitung .zeile-text p { font-size: clamp(1.02rem, 1.2vw, 1.15rem); line-height: 1.62; }
-.karriere-einleitung + .abschnitt { padding-top: clamp(48px, 5vw, 80px); }
 
 .zweispaltig { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: clamp(40px, 7vw, 140px); }
 .fliess p { max-width: 34em; }
@@ -490,8 +482,6 @@ h3 { font-size: 1.12rem; font-weight: 420; line-height: 1.38; letter-spacing: -0
 .frage[open] .frage-zeichen::after { transform: rotate(0deg); }
 .frage p { color: var(--schiefer); max-width: 38em; margin: -6px 0 26px; }
 
-.bewerbung-unten { margin-top: clamp(40px, 4vw, 64px); display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 22px; max-width: 46em; }
-.bewerbung-unten .lead { margin: 0; }
 .formular-hinweis { font-size: 0.84rem; color: var(--schiefer); max-width: 46em; margin: 0; }
 .formular-hinweis a { color: var(--navy); }
 
@@ -531,18 +521,17 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px
 .vorschau p { margin: 0; color: var(--schiefer); }
 .formular-status { margin-top: 16px; color: var(--navy); font-size: 0.9rem; }
 
-/* Stellenanzeige und Rechtstexte */
-.anzeige, .recht-text { padding: clamp(64px, 7vw, 112px) var(--rand) clamp(96px, 10vw, 160px) calc(var(--rand) + 36%); }
-.anzeige-text, .recht-text > * { max-width: 44rem; }
-.anzeige-text h2, .recht-text h2 { font-size: clamp(1.25rem, 1.7vw, 1.6rem); font-weight: 320; line-height: 1.25; color: var(--navy); margin: 2.6em 0 0.9em; letter-spacing: -0.01em; }
-.anzeige-text > h2:first-child, .recht-text > h2:first-child { margin-top: 0; }
-.anzeige-text ul, .anzeige-text ol, .recht-text ul { padding-left: 1.2em; margin: 0 0 1.2em; }
-.anzeige-text li, .recht-text li { margin-bottom: 0.5em; }
-.anzeige-text li::marker, .recht-text li::marker { color: var(--navy); }
-.anzeige-text a, .recht-text a { color: var(--navy); }
-.anzeige-text .klein, .recht-text .klein { font-size: 0.86rem; color: var(--schiefer); }
+/* Rechtstexte */
+.recht-text { padding: clamp(64px, 7vw, 112px) var(--rand) clamp(96px, 10vw, 160px) calc(var(--rand) + 36%); }
+.recht-text > * { max-width: 44rem; }
+.recht-text h2 { font-size: clamp(1.25rem, 1.7vw, 1.6rem); font-weight: 320; line-height: 1.25; color: var(--navy); margin: 2.6em 0 0.9em; letter-spacing: -0.01em; }
+.recht-text > h2:first-child { margin-top: 0; }
+.recht-text ul { padding-left: 1.2em; margin: 0 0 1.2em; }
+.recht-text li { margin-bottom: 0.5em; }
+.recht-text li::marker { color: var(--navy); }
+.recht-text a { color: var(--navy); }
+.recht-text .klein { font-size: 0.86rem; color: var(--schiefer); }
 .recht-text p { font-size: 0.95rem; }
-.anzeige-aktionen { margin-top: 3rem; padding-top: 2.4rem; border-top: 1px solid var(--linie); }
 .recht-kopf { border-bottom: 1px solid var(--linie); }
 .recht { padding: 0; }
 
@@ -593,7 +582,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px
   .zeile-kopf { margin-bottom: 1rem; }
   .kontakt-spalte { margin-bottom: 64px; }
   .hellkopf-bild { max-width: 360px; margin-top: 40px; }
-  .anzeige, .recht-text { padding-left: var(--rand); }
+  .recht-text { padding-left: var(--rand); }
   .karriere-band-innen { grid-template-columns: minmax(0, 1fr); }
   .karriere-band .textlink { grid-column: 1; }
 }
@@ -709,4 +698,233 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px
 }
 @media (max-width: 420px) {
   .knopf { letter-spacing: 0.12em; padding: 0 20px; }
+}
+
+/* ------------------------------------------------------------ Karriere (Gestaltung 28.10.: dicht und vollständig statt leerer Hälften) */
+/* Eckdaten der Stelle (Karte auf der Übersicht, Kasten im Kopf der Stellenseite) */
+.stelle-fakten { margin: 0; display: grid; }
+.stelle-fakten > div { padding: 14px 0; }
+.stelle-fakten > div + div { border-top: 1px solid var(--linie); }
+.stelle-fakten > div:first-child { padding-top: 0; }
+.stelle-fakten > div:last-child { padding-bottom: 0; }
+.stelle-fakten dt { font-size: 0.6875rem; font-weight: 520; letter-spacing: 0.2em; line-height: 1.6; text-transform: uppercase; color: var(--schiefer); margin-bottom: 4px; }
+.stelle-fakten dd { margin: 0; font-size: 0.98rem; line-height: 1.5; color: var(--navy); }
+
+/* Übersicht: Ben mit Porträt */
+
+/* Übersicht: Stelle als Karte, links Text, rechts Eckdaten */
+.stellen, .vorteile, .bewerbung { padding-top: clamp(80px, 8.5vw, 136px); padding-bottom: clamp(80px, 8.5vw, 136px); }
+.stellen .abschnitt-kopf { margin-bottom: clamp(40px, 4.5vw, 72px); }
+.stelle-karte {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  background: var(--weiss); border: 1px solid var(--linie); color: inherit; text-decoration: none;
+  transition: border-color 0.4s;
+}
+.stelle-karte:hover { border-color: var(--navy); }
+.stelle-karte:hover .pfeil { transform: translateX(8px); }
+.stelle-karte-text { display: flex; flex-direction: column; padding: clamp(32px, 3.6vw, 56px); }
+.stelle-karte-text .label { margin-bottom: 1.6rem; }
+.stelle-karte .h-zeile { margin-bottom: 1.2rem; max-width: 17em; }
+.stelle-karte .h-zeile { hyphens: manual; -webkit-hyphens: manual; }
+@media (max-width: 760px) { .stelle-karte .h-zeile { font-size: 1.55rem; } }
+.stelle-karte-text p:not(.label) { color: var(--schiefer); max-width: 34em; }
+.stelle-karte .kachel-aktion { margin-top: auto; padding-top: 20px; }
+.stelle-karte .stelle-fakten { align-content: center; padding: clamp(32px, 3.6vw, 56px); border-left: 1px solid var(--linie); background: #f8fafc; }
+
+/* Übersicht: vier Gründe */
+.vorteile .kachel { min-height: 0; }
+.vorteile .kachel .label { margin-bottom: 1.6rem; }
+.vorteile .kachel p:not(.label) { margin-bottom: 0; }
+
+/* Übersicht: Bewerbung, links der Weg mit großer Nummer, rechts der Ablauf */
+.bewerbung-raster { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); column-gap: clamp(40px, 7vw, 140px); align-items: start; }
+.bewerbung-weg .h-gross { margin-bottom: 2rem; }
+.bewerbung-weg .lead { margin-bottom: 0.9rem; color: var(--tinte); }
+.telefon-gross {
+  display: inline-block; margin: 0 0 1.2rem;
+  font-size: clamp(2rem, 3.4vw, 3.3rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; color: var(--navy);
+  text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: var(--linie-feld); text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.3s;
+}
+.telefon-gross:hover { text-decoration-color: var(--navy); }
+.bewerbung-notiz { color: var(--schiefer); max-width: 32em; margin-bottom: 1.8rem; }
+.bewerbung-weg .aktionen { margin-bottom: 1.6rem; }
+.bewerbung-ablauf { padding-top: 0; }
+.bewerbung-ablauf .label { margin-bottom: 1.2rem; }
+.bewerbung-ablauf .ablauf li { padding: 26px 0; }
+.bewerbung-ablauf h3 { margin: 0 0 0.35rem; font-size: 1.08rem; font-weight: 400; }
+.bewerbung-ablauf .ablauf li p { color: var(--schiefer); font-size: 0.96rem; }
+
+/* Stellenseite: Kopf mit Überschrift und Vorspann links, Eckdaten-Kasten rechts */
+.stelle-kopf { padding-top: calc(var(--kopf) + clamp(56px, 6vw, 104px)); padding-bottom: clamp(56px, 6vw, 96px); }
+.stelle-kopf-raster { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); grid-template-rows: auto auto 1fr; column-gap: clamp(40px, 6vw, 112px); align-items: start; }
+.stelle-kopf-raster > :not(.stelle-eck) { grid-column: 1; }
+.stelle-kopf .h-seite { font-size: clamp(2rem, 3.4vw, 3.4rem); max-width: 15em; margin-bottom: 1.8rem; }
+.stelle-vorspann p { max-width: 36em; }
+.stelle-vorspann .lead { margin: 0 0 1rem; color: var(--tinte); }
+.stelle-vorspann p:not(.lead) { margin: 0; color: var(--schiefer); }
+.stelle-eck { grid-column: 2; grid-row: 1 / -1; background: var(--nebel); padding: clamp(28px, 2.8vw, 40px); }
+.stelle-eck > .label { margin-bottom: 1.2rem; }
+.stelle-eck .stelle-fakten { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+.stelle-eck .stelle-fakten > div { padding: 14px 0 0; border-top: 1px solid var(--linie-feld); }
+.stelle-eck .stelle-fakten > div:nth-child(n+3) { margin-top: 14px; }
+.stelle-eck-aktionen { display: grid; gap: 10px; margin-top: 28px; }
+.stelle-eck-aktionen .knopf { width: 100%; }
+.stelle-eck-zeiten { margin: 0 0 8px; font-size: 0.8rem; color: var(--schiefer); text-align: center; }
+
+/* Stellenseite: je Abschnitt der Anzeige eine Zeile, links Nummer und Überschrift (mitlaufend), rechts der Text */
+.anzeige { counter-reset: abschnitt; }
+.anzeige-abschnitt {
+  counter-increment: abschnitt;
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); column-gap: clamp(40px, 6vw, 112px);
+  padding: clamp(56px, 6vw, 96px) var(--rand);
+}
+.anzeige-abschnitt + .anzeige-abschnitt { border-top: 1px solid var(--linie); }
+.anzeige-kopf { position: sticky; top: calc(var(--kopf) + 40px); align-self: start; }
+.anzeige-kopf h2 { margin: 0; font-size: clamp(0.9rem, 1vw, 1rem); font-weight: 480; line-height: 1.5; letter-spacing: 0.14em; color: var(--navy); }
+.anzeige-kopf h2::before {
+  content: counter(abschnitt, decimal-leading-zero); display: block; margin-bottom: 12px;
+  font-size: 0.6875rem; font-weight: 520; letter-spacing: 0.2em; color: var(--schiefer);
+}
+.anzeige-inhalt { max-width: 44rem; }
+.anzeige-inhalt p { max-width: 38em; }
+.anzeige-inhalt > :last-child { margin-bottom: 0; }
+.anzeige-inhalt a { color: var(--navy); }
+.anzeige-inhalt a.knopf { color: var(--weiss); }
+.anzeige-inhalt .klein { font-size: 0.86rem; color: var(--schiefer); }
+.anzeige-worum-es-geht .anzeige-inhalt > p:first-child { font-size: clamp(1.08rem, 1.4vw, 1.3rem); line-height: 1.55; color: var(--navy); }
+.anzeige-wie-der-alltag-aussieht .anzeige-inhalt > p { font-size: clamp(1.02rem, 1.2vw, 1.15rem); line-height: 1.62; }
+
+/* Listen der Anzeige: Haarlinien; „Was du tust“ nummeriert, „Was du mitbringst“ mit Haken */
+.anzeige-inhalt ul { list-style: none; margin: 0 0 1.2em; padding: 0; border-top: 1px solid var(--linie); counter-reset: punkt; }
+.anzeige-inhalt li { position: relative; margin: 0; padding: 18px 0 18px 52px; border-bottom: 1px solid var(--linie); }
+.anzeige-inhalt li::before {
+  counter-increment: punkt; content: counter(punkt, decimal-leading-zero); position: absolute; left: 0; top: 22px;
+  font-size: 0.6875rem; font-weight: 520; letter-spacing: 0.2em; line-height: 1.6; color: var(--navy);
+}
+.anzeige-was-du-mitbringst li::before { content: ""; top: 31px; left: 3px; width: 13px; height: 7px; border-left: 1.5px solid var(--navy); border-bottom: 1.5px solid var(--navy); transform: translateY(-50%) rotate(-45deg); }
+
+/* „Was du bekommst“: Kacheln, das Geld als dunkle Kachel über die ganze Breite */
+.anzeige-was-du-bekommst ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-left: 1px solid var(--linie); }
+.anzeige-was-du-bekommst li { padding: clamp(22px, 2.2vw, 30px); border-right: 1px solid var(--linie); color: var(--schiefer); font-size: 0.95rem; }
+.anzeige-was-du-bekommst li::before { display: none; }
+.anzeige-was-du-bekommst li > strong:first-child { display: block; margin-bottom: 8px; font-size: 1.04rem; font-weight: 440; line-height: 1.4; color: var(--navy); }
+.anzeige-was-du-bekommst li:first-child, .anzeige-was-du-bekommst li:last-child { grid-column: 1 / -1; }
+.anzeige-was-du-bekommst li:first-child { background: var(--navy); border-color: var(--navy); color: rgba(255, 255, 255, 0.86); font-size: 1rem; padding: clamp(26px, 2.8vw, 38px); }
+.anzeige-was-du-bekommst li:first-child strong { color: var(--weiss); }
+.anzeige-was-du-bekommst li:first-child > strong:first-child { font-size: clamp(1.15rem, 1.5vw, 1.35rem); font-weight: 340; margin-bottom: 12px; }
+
+/* Bilder in der linken Spalte: Treppe neben „Dein Weg“ */
+.anzeige-bild { margin: 32px 0 0; overflow: hidden; background: var(--nebel); }
+.anzeige-bild-weg { position: relative; aspect-ratio: 16 / 10; max-width: 460px; }
+.anzeige-bild-weg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* „So bewirbst du dich“ auf Nebel, darunter Anruf, Mail und Weg zurück */
+.anzeige-so-bewirbst-du-dich { background: var(--nebel); }
+.anzeige-abschnitt.anzeige-so-bewirbst-du-dich { border-top: 0; }
+.anzeige-aktionen { margin-top: 2.6rem; padding-top: 2.2rem; border-top: 1px solid var(--linie-feld); gap: 18px 30px; }
+.anzeige-aktionen .telefon-gross { flex-basis: 100%; margin: 0; }
+.anzeige-aktionen + .formular-hinweis { margin-top: 1rem; }
+
+/* „So bewirbst du dich“ ohne Bild: Anruf, Mail-Knopf und Hinweis stehen links direkt unter der Überschrift, der Text läuft rechts
+   durch (im Quelltext bleibt die Reihenfolge der Anzeige unverändert) */
+@media (min-width: 901px) {
+  .anzeige-so-bewirbst-du-dich { grid-template-rows: auto auto auto 1fr; }
+  .anzeige-so-bewirbst-du-dich .anzeige-inhalt { display: contents; }
+  .anzeige-so-bewirbst-du-dich .anzeige-kopf { grid-column: 1; grid-row: 1; }
+  .anzeige-so-bewirbst-du-dich .anzeige-fliess { grid-column: 2; grid-row: 1 / -1; max-width: 44rem; }
+  .anzeige-so-bewirbst-du-dich .anzeige-fliess > p { max-width: none; }
+  .anzeige-so-bewirbst-du-dich .anzeige-aktionen { grid-column: 1; grid-row: 2; align-self: start; margin-top: 28px; padding-top: 0; border-top: 0; }
+  .anzeige-so-bewirbst-du-dich .anzeige-aktionen + .formular-hinweis { grid-column: 1; grid-row: 3; align-self: start; max-width: 24em; }
+  .anzeige-so-bewirbst-du-dich .telefon-gross { font-size: clamp(1.6rem, 2.4vw, 2.2rem); white-space: nowrap; }
+}
+
+@media (max-width: 1100px) {
+  .stelle-karte { grid-template-columns: minmax(0, 1fr); }
+  .stelle-karte .stelle-fakten { border-left: 0; border-top: 1px solid var(--linie); }
+  .vorteile .raster-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .bewerbung-raster { grid-template-columns: minmax(0, 1fr); row-gap: 64px; }
+  .stelle-kopf-raster { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .stelle-eck { grid-column: 1; grid-row: auto; order: 5; margin-top: 36px; }
+  .anzeige-abschnitt { grid-template-columns: minmax(0, 1fr); row-gap: 22px; }
+  .anzeige-kopf { position: static; }
+  .anzeige-bild-weg { max-width: none; margin-top: 22px; }
+}
+@media (max-width: 760px) {
+  .vorteile .raster-4 { grid-template-columns: minmax(0, 1fr); }
+  .anzeige-was-du-bekommst ul { grid-template-columns: minmax(0, 1fr); }
+  .anzeige-inhalt li { padding-left: 44px; }
+  .anzeige-was-du-bekommst li { padding: 22px 20px; }
+}
+@media (max-width: 760px) {
+  .anzeige-abschnitt { padding-top: 44px; padding-bottom: 44px; }
+  .anzeige-inhalt li { padding-top: 14px; padding-bottom: 14px; }
+  .anzeige-inhalt li::before { top: 18px; }
+  .anzeige-was-du-mitbringst li::before { top: 27px; }
+  .stelle-eck { padding: 24px 22px; }
+  .stelle-eck .stelle-fakten { grid-template-columns: minmax(0, 1fr); }
+  .stelle-eck .stelle-fakten > div + div { margin-top: 12px; }
+}
+
+/* ------------------------------------------------------------ Karriere: eine Seite, die Stelle als Ausklapper (29.10.) */
+.karriere-lca { padding-top: clamp(72px, 8vw, 128px); padding-bottom: clamp(72px, 8vw, 128px); }
+.karriere-lca-raster { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); column-gap: clamp(40px, 6vw, 112px); align-items: start; }
+.karriere-lca-text { max-width: 44rem; }
+.karriere-lca-text p { max-width: 38em; color: var(--schiefer); font-size: clamp(1rem, 1.1vw, 1.08rem); line-height: 1.65; }
+.karriere-lca-text p:first-child { color: var(--navy); font-size: clamp(1.12rem, 1.5vw, 1.35rem); line-height: 1.55; }
+.karriere-lca-text > :last-child { margin-bottom: 0; }
+.karriere-datenschutz { padding-top: clamp(36px, 4vw, 56px); padding-bottom: clamp(44px, 5vw, 72px); }
+.karriere-datenschutz p { margin: 0; max-width: 46rem; font-size: 0.9rem; color: var(--schiefer); }
+.karriere-datenschutz a { color: var(--navy); }
+@media (max-width: 900px) { .karriere-lca-raster { grid-template-columns: minmax(0, 1fr); row-gap: 28px; } }
+
+.stelle-auf { background: var(--weiss); border: 1px solid var(--linie); transition: border-color 0.4s; }
+.stelle-auf:hover, .stelle-auf[open] { border-color: var(--navy); }
+.stelle-auf-kopf {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) auto; column-gap: clamp(28px, 4vw, 64px); align-items: center;
+  padding: clamp(28px, 3.2vw, 48px); cursor: pointer; list-style: none;
+}
+.stelle-auf-kopf::-webkit-details-marker { display: none; }
+.stelle-auf-kopf:focus-visible { outline: 2px solid var(--navy); outline-offset: -6px; }
+.stelle-auf-text .label { display: block; margin-bottom: 1.2rem; }
+.stelle-auf-text .h-zeile { margin: 0; max-width: 15em; }
+.stelle-auf-kopf .stelle-fakten { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; row-gap: 0; }
+.stelle-auf-kopf .stelle-fakten > div, .stelle-auf-kopf .stelle-fakten > div:first-child, .stelle-auf-kopf .stelle-fakten > div:last-child { padding: 12px 0; border-top: 1px solid var(--linie); }
+.stelle-auf-kopf .stelle-fakten > div:nth-child(-n+2) { border-top: 0; padding-top: 0; }
+.stelle-auf-kopf .stelle-fakten > div:nth-last-child(-n+2) { padding-bottom: 0; }
+.stelle-auf-zeichen { display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 64px; }
+.stelle-auf-zeichen i { position: relative; width: 48px; height: 48px; border: 1px solid var(--navy); border-radius: 50%; transition: background 0.3s; }
+.stelle-auf-zeichen i::before, .stelle-auf-zeichen i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 16px; height: 1.5px; background: var(--navy); transform: translate(-50%, -50%); transition: transform 0.35s, background 0.3s; }
+.stelle-auf-zeichen i::after { transform: translate(-50%, -50%) rotate(90deg); }
+.stelle-auf[open] .stelle-auf-zeichen i::after { transform: translate(-50%, -50%) rotate(0deg); }
+.stelle-auf-kopf:hover .stelle-auf-zeichen i { background: var(--navy); }
+.stelle-auf-kopf:hover .stelle-auf-zeichen i::before, .stelle-auf-kopf:hover .stelle-auf-zeichen i::after { background: var(--weiss); }
+.stelle-auf-wort { font-size: 0.6875rem; font-weight: 520; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); }
+.stelle-auf-wort::before { content: "Ansehen"; }
+.stelle-auf[open] .stelle-auf-wort::before { content: "Schließen"; }
+.stelle-auf-inhalt { border-top: 1px solid var(--linie); }
+.stelle-auf-vorspann { padding: clamp(48px, 5vw, 80px) clamp(28px, 3.2vw, 48px) 0; max-width: 62rem; }
+.stelle-auf-vorspann p { max-width: 42em; color: var(--schiefer); }
+.stelle-auf-vorspann p.lead { color: var(--navy); }
+.stelle-auf .anzeige-abschnitt { padding-left: clamp(28px, 3.2vw, 48px); padding-right: clamp(28px, 3.2vw, 48px); }
+.stelle-auf .anzeige-kopf { top: calc(var(--kopf) + 24px); }
+.stelle-auf .anzeige-kopf h4 { margin: 0; font-size: clamp(0.9rem, 1vw, 1rem); font-weight: 480; line-height: 1.5; letter-spacing: 0.14em; color: var(--navy); hyphens: manual; -webkit-hyphens: manual; }
+.stelle-auf .anzeige-kopf h4::before { content: counter(abschnitt, decimal-leading-zero); display: block; margin-bottom: 12px; font-size: 0.6875rem; font-weight: 520; letter-spacing: 0.2em; color: var(--schiefer); }
+@media (max-width: 1100px) {
+  .stelle-auf-kopf { grid-template-columns: minmax(0, 1fr) auto; row-gap: 28px; }
+  .stelle-auf-kopf .stelle-fakten { grid-column: 1 / -1; grid-row: 2; }
+}
+@media (max-width: 760px) {
+  .stelle-auf-kopf { padding: 24px 20px; column-gap: 16px; }
+  .stelle-auf-text .h-zeile { max-width: none; font-size: 1.45rem; hyphens: manual; -webkit-hyphens: manual; }
+  .stelle-auf-kopf .stelle-fakten { grid-template-columns: minmax(0, 1fr); }
+  .stelle-auf-kopf .stelle-fakten > div:nth-child(2) { border-top: 1px solid var(--linie); padding-top: 12px; }
+  .stelle-auf-kopf .stelle-fakten > div:nth-last-child(2) { padding-bottom: 12px; }
+  .stelle-auf-kopf { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
+  .stelle-auf-kopf .stelle-fakten { grid-row: auto; }
+  .stelle-auf-zeichen { grid-column: 1; flex-direction: row; justify-content: space-between; min-width: 0; padding-top: 18px; border-top: 1px solid var(--linie); }
+  .stelle-auf-zeichen i { width: 40px; height: 40px; }
+  .stelle-auf-vorspann, .stelle-auf .anzeige-abschnitt { padding-left: 20px; padding-right: 20px; }
 }

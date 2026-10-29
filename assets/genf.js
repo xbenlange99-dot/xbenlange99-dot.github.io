@@ -147,3 +147,14 @@
     });
   }
 })();
+
+/* Karriere: Aufruf mit Anker (#sales-development-representative) klappt die Stelle auf */
+(function () {
+  function oeffne() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && document.getElementById(id);
+    if (el && el.tagName === 'DETAILS' && !el.open) { el.open = true; el.scrollIntoView({ block: 'start' }); }
+  }
+  oeffne();
+  window.addEventListener('hashchange', oeffne);
+})();
